@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # مرحله ۴: نصب وابستگی‌ها
-RUN npm install
+RUN npm install --verbose
 
 # مرحله ۵: کپی کردن بقیه فایل‌های پروژه
 COPY . .
