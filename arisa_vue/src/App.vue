@@ -1,47 +1,23 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header class="bg-black">
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div id="app">
+    <!-- ۱. کامپوننت هدر رو اینجا استفاده می‌کنیم -->
+    <Header />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <main class="container mx-auto p-4">
+      <h2>محتوای اصلی سایت</h2>
+      <p>اینجا قراره مطالب و کامپوننت‌های دیگه رو قرار بدیم.</p>
+    </main>
+  </div>
 </template>
 
+<script setup>
+// ۲. اول کامپوننت هدر رو وارد (import) می‌کنیم
+import Header from './components/Header.vue';
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+/* استایل‌های کلی برنامه */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>

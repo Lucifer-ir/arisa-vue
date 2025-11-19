@@ -1,18 +1,16 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  },
+  plugins: [vue()],
+  server: {
+    // این خط باعث میشه سرور از بیرون کانتینر در دسترس باشه
+    host: true,
+    // این بخش کلیدی برای حل مشکل لایو آپدیت در داکره
+    watch: {
+      usePolling: true, // فعال کردن حالت بررسی فعالانه
+      interval: 100     // هر ۱۰۰ میلی‌ثانیه یکبار فایل‌ها رو چک کن
+    }
+  }
 })
